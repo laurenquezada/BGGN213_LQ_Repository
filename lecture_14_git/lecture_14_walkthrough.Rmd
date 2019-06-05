@@ -2,7 +2,7 @@
 title: "lecture_14_walkthrough"
 author: "LQ"
 date: "5/17/2019"
-output: github_document
+output: html_document
 ---
 
 ```{r setup, include=FALSE}
@@ -217,7 +217,7 @@ dds <- DESeq(dds)
 
 ```{r}
 res <- results(dds)
-as.data.frame(res)
+#as.data.frame(res)
 
 ```
 
