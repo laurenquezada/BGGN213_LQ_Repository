@@ -10,7 +10,7 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 ### Can you improve this analysis code?
-### Original copy/paste to test functionality
+#### Original copy/paste to test functionality
 
 ```{r}
 library(bio3d)
@@ -29,7 +29,7 @@ plotb3(s3.b, sse=s3.chainA, typ="l", ylab="Bfactor")
 
 ```
 
-### Fixing copy/paste errors
+#### Fixing copy/paste errors
 
 ```{r}
 s1 <- read.pdb("4AKE")  # kinase with drug
@@ -46,7 +46,7 @@ plotb3(s2.b, sse=s2.chainA, typ="l", ylab="Bfactor")
 plotb3(s3.b, sse=s3.chainA, typ="l", ylab="Bfactor")
 ```
 
-## **Q6. How would you generalize the original code above to work with any set of input protein structures?**
+#### **Q6. How would you generalize the original code above to work with any set of input protein structures?**
 
 ```{r}
 x <- "4AKE"
@@ -65,7 +65,7 @@ lq_protein(x)
 ```
 
 
-# *Questions*
+### *Questions*
 
 **Q1. What type of object is returned from the read.pdb() function?**
     *The function returns a list of properties of a given protein such as: a data.frame of atomic information, the protein sequence and secondary structure information.*

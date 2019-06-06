@@ -5,7 +5,7 @@ LQ
 
 ### Can you improve this analysis code?
 
-### Original copy/paste to test functionality
+#### Original copy/paste to test functionality
 
 ``` r
 library(bio3d)
@@ -51,7 +51,7 @@ plotb3(s3.b, sse=s3.chainA, typ="l", ylab="Bfactor")
 
 ![](RMD_Lecture6HW_LQ_files/figure-markdown_github/unnamed-chunk-1-3.png)
 
-### Fixing copy/paste errors
+#### Fixing copy/paste errors
 
 ``` r
 s1 <- read.pdb("4AKE")  # kinase with drug
@@ -60,7 +60,7 @@ s1 <- read.pdb("4AKE")  # kinase with drug
     ##   Note: Accessing on-line PDB file
 
     ## Warning in get.pdb(file, path = tempdir(), verbose = FALSE): /var/folders/
-    ## 1_/_n1fc0xn4wb95r42s_j98wmh0000gp/T//Rtmp5s4jVU/4AKE.pdb exists. Skipping
+    ## 1_/_n1fc0xn4wb95r42s_j98wmh0000gp/T//RtmpsrnIki/4AKE.pdb exists. Skipping
     ## download
 
 ``` r
@@ -70,7 +70,7 @@ s2 <- read.pdb("1AKE")  # kinase no drug
     ##   Note: Accessing on-line PDB file
 
     ## Warning in get.pdb(file, path = tempdir(), verbose = FALSE): /var/folders/
-    ## 1_/_n1fc0xn4wb95r42s_j98wmh0000gp/T//Rtmp5s4jVU/1AKE.pdb exists. Skipping
+    ## 1_/_n1fc0xn4wb95r42s_j98wmh0000gp/T//RtmpsrnIki/1AKE.pdb exists. Skipping
     ## download
 
     ##    PDB has ALT records, taking A only, rm.alt=TRUE
@@ -82,7 +82,7 @@ s3 <- read.pdb("1E4Y")  # kinase with drug
     ##   Note: Accessing on-line PDB file
 
     ## Warning in get.pdb(file, path = tempdir(), verbose = FALSE): /var/folders/
-    ## 1_/_n1fc0xn4wb95r42s_j98wmh0000gp/T//Rtmp5s4jVU/1E4Y.pdb exists. Skipping
+    ## 1_/_n1fc0xn4wb95r42s_j98wmh0000gp/T//RtmpsrnIki/1E4Y.pdb exists. Skipping
     ## download
 
 ``` r
@@ -109,8 +109,7 @@ plotb3(s3.b, sse=s3.chainA, typ="l", ylab="Bfactor")
 
 ![](RMD_Lecture6HW_LQ_files/figure-markdown_github/unnamed-chunk-2-3.png)
 
-**Q6. How would you generalize the original code above to work with any set of input protein structures?**
-----------------------------------------------------------------------------------------------------------
+#### **Q6. How would you generalize the original code above to work with any set of input protein structures?**
 
 ``` r
 x <- "4AKE"
@@ -131,13 +130,12 @@ lq_protein(x)
     ##   Note: Accessing on-line PDB file
 
     ## Warning in get.pdb(file, path = tempdir(), verbose = FALSE): /var/folders/
-    ## 1_/_n1fc0xn4wb95r42s_j98wmh0000gp/T//Rtmp5s4jVU/4AKE.pdb exists. Skipping
+    ## 1_/_n1fc0xn4wb95r42s_j98wmh0000gp/T//RtmpsrnIki/4AKE.pdb exists. Skipping
     ## download
 
 ![](RMD_Lecture6HW_LQ_files/figure-markdown_github/unnamed-chunk-3-1.png)
 
-*Questions*
-===========
+### *Questions*
 
 **Q1. What type of object is returned from the read.pdb() function?** *The function returns a list of properties of a given protein such as: a data.frame of atomic information, the protein sequence and secondary structure information.*
 
