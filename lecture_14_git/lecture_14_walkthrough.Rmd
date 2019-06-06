@@ -2,7 +2,7 @@
 title: "lecture_14_walkthrough"
 author: "LQ"
 date: "5/17/2019"
-output: html_document
+output: github_document
 ---
 
 ```{r setup, include=FALSE}
