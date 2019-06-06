@@ -1,2 +1,2 @@
 # bggn213
-[14](lecture_14_git/lecture_14_walkthrough.md)
+[14](https://github.com/laurenquezada/BGGN213_LQ_Repository/blob/master/lecture_14_git/lecture_14_walkthrough.md)
