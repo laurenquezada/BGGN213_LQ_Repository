@@ -1,10 +1,11 @@
-lecture\_6\_walkthrough
+Lecture\_6\_Walkthrough
 ================
 LQ
 5/1/2019
 
+#### A. Can you improve this analysis?
+
 ``` r
-# (A. Can you improve this analysis code?
 df <- data.frame(a=1:10, b=seq(200,400,length=10),c=11:20,d=NA)
 df$b <- (df$b - min(df$b)) / (max(df$b) - min(df$b))
 df$b
@@ -265,7 +266,7 @@ plot_x <- function(data_x){
 plot_x(data_x)
 ```
 
-![](lecture_6_walkthrough_files/figure-markdown_github/unnamed-chunk-6-1.png)
+![](lecture_6_walkthrough_files/figure-markdown_github/unnamed-chunk-7-1.png)
 
     ## function(data_x){
     ##   plotb3(data_x, sse=trim_x, typ="l", ylab="Bfactor")

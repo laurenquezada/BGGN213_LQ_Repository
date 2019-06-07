@@ -1,5 +1,5 @@
 ---
-title: "lecture_6_walkthrough"
+title: "Lecture_6_Walkthrough"
 author: "LQ"
 date: "5/1/2019"
 output: github_document
@@ -9,8 +9,10 @@ output: github_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+
+#### A. Can you improve this analysis?
 ```{r}
-# (A. Can you improve this analysis?
+
 df <- data.frame(a=1:10, b=seq(200,400,length=10),c=11:20,d=NA)
 df$b <- (df$b - min(df$b)) / (max(df$b) - min(df$b))
 df$b
@@ -106,6 +108,11 @@ add(1, 4)
 add(1)
 add( c(1, 2, 3) )
 add( c(1, 2, 3), 4 )
+
+```
+
+
+```{r}
 #in class example - meant to throw errors
 #add(1, 2, 2)
 #add(x=1, y=“b”)
