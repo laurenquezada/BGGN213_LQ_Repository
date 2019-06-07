@@ -10,3 +10,4 @@
 
 [Lecture 7](https://github.com/laurenquezada/BGGN213_LQ_Repository/blob/master/lecture_7_git/lecture_7_class_walkthrough.md) - R Packages
 
+[Lecture 8](https://github.com/laurenquezada/BGGN213_LQ_Repository/blob/master/lecture_8_git/lecture_8_class_walkthrough_proj.md) - Machine Learning
