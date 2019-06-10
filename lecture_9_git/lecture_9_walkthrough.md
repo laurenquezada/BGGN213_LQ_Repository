@@ -558,7 +558,8 @@ plot(wisc.pr$x[,1], wisc.pr$x[,2], col = grps)
 
 ``` r
 library(rgl)
-plot3d(wisc.pr$x[,1:3], xlab="PC 1", ylab="PC 2", zlab="PC 3", cex=1.5, size=1, type="s", col=grps)
+newplot <- plot3d(wisc.pr$x[,1:3], xlab="PC 1", ylab="PC 2", zlab="PC 3", cex=1.5, size=1, type="s", col=grps)
+print(newplot)
 ```
 
 SECTION 7 - PREDICTIONS
