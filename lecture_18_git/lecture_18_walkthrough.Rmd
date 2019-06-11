@@ -1,0 +1,146 @@
+---
+title: "Lecture_18_walkthrough"
+author: "LQ"
+date: "5/31/2019"
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+####source("https://bioconductor.org/biocLite.R")
+####biocLite(c("GenomicDataCommons", "TCGAbiolinks", "maftools"))
+```{r}
+library(GenomicDataCommons)
+library(TCGAbiolinks)
+##Install error occurred saying that there is no package called ʻcmprskʻ - it is most likely a "dependency" package that the main package you are trying to use needs to run
+##Determined that cmprsk is newly updated and will only work in the most current version of r
+##Google it and see if there are other versions to download
+library(maftools)
+```
+
+```{r}
+status()
+```
+
+```{r}
+projects <- getGDCprojects()
+head(projects)
+```
+
+```{r}
+cases_by_project <- cases() %>%
+  facet("project.project_id") %>%
+  aggregations()
+head(cases_by_project)
+```
+
+
+```{r}
+x <- cases_by_project$project.project_id
+
+x$key == "TCGA-PAAD"
+# Make a custom color vector for our plot
+colvec <- rep("lightblue", nrow(x))
+colvec[x$key == "TCGA-PAAD"] <- "red"
+
+
+
+# Plot with 'log' for y axis and rotate labels with 'las'
+#par(___)  
+barplot(x$doc_count, names.arg=x$key, log="y", col=colvec, las=2)
+```
+
+```{r}
+samp <- getSampleFilesSummary("TCGA-PAAD")
+## Accessing information for project: TCGA-PAAD
+## Using 'state_comment' as value column. Use 'value.var' to override
+## Aggregation function missing: defaulting to length
+head(samp)
+```
+
+```{r}
+#GDCquery() function to focus in on a particular data type that we are interested in
+
+query <- GDCquery(project="TCGA-PAAD",
+                  data.category="Transcriptome Profiling",
+                  data.type="Gene Expression Quantification")
+
+ans <- getResults(query)
+head(ans)
+#View(ans)
+nrow(ans)
+```
+
+##Workbook 2
+
+###Step 1: Identify sequence regions that contain all 9-mer peptides that are only found in the tumor
+- What are the tumor amino acids?
+- What peptides include these amino acids?
+```{r}
+library(bio3d)
+seqs <- read.fasta("lecture18_sequences.fa")
+seqs
+```
+
+
+####BiocManager::install("muscle")
+```{r}
+dataseqs <- data.frame(seqs$id, seqs$ali)
+diff <- which(seqs$ali[1,] != seqs$ali[2,])
+diff
+```
+
+```{r}
+##From Barry, identify (new command) which aa are identical (same as above)
+ide <- conserv(seqs, method = "identity")
+ide
+
+#Identify (new command) where the gaps are (gap containing is the t.inds)
+gaps <- gap.inspect(seqs)
+gaps.inds <- gaps$t.inds
+gaps.inds
+
+tumor.sites <- diff[!diff %in% gaps.inds]
+tumor.sites
+```
+
+```{r}
+seqs$ali[,tumor.sites]
+ids <- paste(seqs$ali[1,tumor.sites], 
+      tumor.sites,
+      seqs$ali[2,tumor.sites], sep="")
+ids
+```
+
+```{r}
+#From Barry
+start.ind <- tumor.sites-8
+end.ind <- tumor.sites+8
+
+tumor <- NULL
+for(i in 1:length(tumor.sites)) {
+  tumor <- seqbind(tumor,
+                   seqs$ali[2,start.ind[i]: end.ind[i]])
+}
+tumor
+
+seqs$ali[,start.ind:end.ind]
+```
+
+```{r}
+#From Solutions
+start.ind <- tumor.sites-8
+end.ind <- tumor.sites+8
+
+tumor2 <- NULL
+for(i in 1:length(tumor.sites)) {
+  tumor2 <- seqbind(tumor,
+                   seqs$ali[2,start.ind[i]: end.ind[i]])}
+tumor2
+```
+
+
+
+
