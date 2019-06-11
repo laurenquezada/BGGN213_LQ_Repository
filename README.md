@@ -19,3 +19,5 @@ Lauren Quezada's Classwork
 Lecture 10 - Hands on with Git - no RMD
 
 [Lecture 11](https://github.com/laurenquezada/BGGN213_LQ_Repository/blob/master/lecture_11_git/lecture_11_class_walkthrough.md) - Structural Bioinformatics, Part 1
+
+[Lecture 12](https://github.com/laurenquezada/BGGN213_LQ_Repository/blob/master/lecture_12_git/lecture_12_class_walkthrough_2.md) - Bioinformatics in Drug Discovery and Design
