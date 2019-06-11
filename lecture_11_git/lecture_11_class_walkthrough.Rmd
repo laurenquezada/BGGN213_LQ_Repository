@@ -1,0 +1,197 @@
+---
+title: "Lecture_11_class_walkthrough"
+author: "LQ"
+date: "5/8/2019"
+output: github_document
+always_allow_html: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+###*Q1: Download a CSV file from the PDB site (accessible from “Analyze” -> “PDB Statistics” > “by Experimental Method and Molecular Type”. Move this CSV file into your RStudio project and determine the percentage of structures solved by X-Ray and Electron Microscopy. Also can you determine what proportion of structures are protein? Aim to have a rendered GitHub document with working code that yields your answers.*
+
+```{r}
+db <- read.csv("Data Export Summary.csv")
+head(db)
+#View(db)
+```
+
+```{r}
+#Total number of structures in the PDB database
+sum(db$Total)
+#rowSums(db[,1:4])
+```
+
+```{r}
+#Percent of each experimental method
+(db$Total/sum(db$Total))*100
+```
+
+```{r}
+#What percent are protein
+(sum(db$Proteins)/sum(db$Total)) *100
+```
+
+###*Q2: Type HIV in the PDB website search box on the home page and determine how many HIV-1 protease structures are in the current PDB?*
+####1157
+
+##Section 3. Using bio3D
+
+Let's read the PDB file we downloaded into R to seehow things live in this place
+```{r}
+library(bio3d)
+```
+
+```{r}
+pdb <- read.pdb("1hsg.pdb")
+pdb
+
+```
+
+```{r}
+pdb$seqres
+#Shortens sequence to amino acid abbreviations
+aa321(pdb$seqres)
+```
+
+```{r}
+attributes(pdb)
+```
+
+```{r}
+head(pdb$atom)
+#Print a subset of $atom data for the first 2 atoms
+pdb$atom[1:2, c("eleno", "elety", "x","y","z")]
+# Note that individual $atom records can also be accessed like this
+pdb$atom$elety[1:2]
+# Which allows us to do the following
+plot.bio3d(pdb$atom$b[pdb$calpha], sse=pdb, typ="l", ylab="B-factor")
+```
+
+```{r}
+# Print a summary of the coordinate data in $xyz
+pdb$xyz
+```
+
+```{r}
+# Examine the row and column dimensions
+dim(pdb$xyz)
+# Print coordinates for the first two atom
+pdb$xyz[ 1, atom2xyz(1:2) ]
+```
+
+
+##Section 4: Atom selection examples
+
+Let's select residue 1
+```{r}
+inds <- atom.select(pdb, resno = 10)
+pdb$atom[inds$atom,]
+```
+
+```{r}
+atom.select(pdb, resno = 10, value = TRUE)
+```
+
+```{r}
+
+pdb_sel <- atom.select(pdb, "protein"  ,value = TRUE)
+pdb_sel
+write.pdb(pdb_sel, file = "1hsg_protein.pdb")
+
+```
+
+```{r}
+lig_sel <- atom.select(pdb, "ligand", value = TRUE)
+lig_sel
+```
+
+```{r}
+write.pdb(lig_sel, file = "1hsg_ligand.pdb")
+```
+#####install.packages("devtools")
+####devtools::install_bitbucket("Grantlab/bio3d-view")
+
+```{r}
+# Load the package
+library("bio3d.view")
+# View the 3D structure
+view(pdb, "overview", col="sse")
+```
+
+##Section 6: Working with Multiple PDB Files
+
+```{r}
+# Download some example PDB files
+ids <- c("1TND_B","1AGR_A","1TAG_A","1GG2_A","1KJY_A","4G5Q_A")
+files <- get.pdb(ids, split = TRUE)
+```
+
+```{r}
+# Extract and align the chains we are interested in
+pdbs <- pdbaln(files, fit = TRUE)
+# Print to screen a summary of the 'pdbs' object
+pdbs
+```
+
+```{r}
+pdbs_2 <- pdbaln(files)
+pdbs_2
+```
+
+
+```{r}
+view(pdbs)
+view (pdbs_2)
+```
+
+###*Q8: What effect does setting the fit=TRUE option have in the related rmsd() function? What does RMSD measure and what would the results indicate if you set fit=FALSE or removed this option? HINT: Bio3D functions have various default options that will be used if the option is not explicitly specified by the user, see help(rmsd) for an example and note that the input options with an equals sign (e.g. fit=FALSE) have default values.*
+
+####You want the RMSD to be of the superimposed (fitted) structures otherwise it will be way larger because the non-fitted structures will be more separated from each other (view fit = TRUE and fit = FALSE files)
+
+
+```{r}
+# Access the first 5 rows, and 8 columns
+pdbs$ali[1:5, 1:8]
+# Associated residues numbers
+pdbs$resno[1:5, 1:8]
+```
+
+```{r}
+# Calculate sequence identity
+seqidentity(pdbs)
+# Calculate RMSD
+rmsd(pdbs)
+```
+
+```{r}
+# Calculate RMSD
+rd <- rmsd(pdbs)
+# Clustering 
+hc <- hclust(as.dist(rd))
+grps <- cutree(hc, k=3)
+# Plot results as dendrogram
+hclustplot(hc, k=3)
+```
+
+```{r}
+# Perform PCA
+pc.xray <- pca(pdbs)
+# Plot our results summary (PCA score plot and scree-plot)
+plot(pc.xray)
+# Visualize first principal component
+pc1 <- mktrj(pc.xray, pc=1, file="pc_1.pdb")
+view(pc1)
+```
+
+
+```{r}
+# The rglwidget() function from the rgl package will show output in your Rmd notebook and rendered html_output documents
+library(rgl) 
+view(pc1)
+rglwidget()
+
+```
+
