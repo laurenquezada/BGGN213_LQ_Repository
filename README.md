@@ -1,6 +1,6 @@
 # BGGN213 
 
-![Pua](https://www.google.com/url?sa=i&source=images&cd=&ved=2ahUKEwj1peCQxuLiAhW1Mn0KHfUJCDYQjRx6BAgBEAU&url=https%3A%2F%2Fwww.pinterest.com%2Fpin%2F155303887164872147%2F&psig=AOvVaw2lLHzCrrwbIY7MgY2Baew9&ust=1560380943886949)
+![Pua](https://www.pinterest.com/pin/155303887164872147/)
 
 Lauren Quezada's Classwork
 
