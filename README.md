@@ -31,3 +31,5 @@ Lecture 16 - UNIX!
 [Lecture 17 - Redone for New Repository](https://github.com/laurenquezada/BGGN213_LQ_Repository/blob/master/lecture_17_git/lecture_17_walkthrough.md) - Biological Network Analysis 
 
 [Lecture 17 - Original RMD Produced During Class, with Cytoscape Data](https://github.com/laurenquezada/BGGN213_LQ_Repository/blob/master/lecture_17_git/lecture_17_walkthrough_class.md) - Biological Network Analysis
+
+[Lecture 18](https://github.com/laurenquezada/BGGN213_LQ_Repository/blob/master/lecture_18_git/lecture_18_walkthrough.md) - Cancer Genomics
