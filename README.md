@@ -4,7 +4,11 @@
 
 Lauren Quezada's Classwork from [BGGN213](https://bioboot.github.io/bggn213_S19/) - Introduction to Bioinfomatics
 
-[Lecture 5](https://github.com/laurenquezada/BGGN213_LQ_Repository/blob/master/lecture_5_rstats/r_core_plots_exercise_answers.r) - Intro to R Statistics
+[Lecture 4 - In Class](https://github.com/laurenquezada/BGGN213_LQ_Repository/blob/master/lecture_4_rstats/inclass_4.R ) - Bioinformatics Data Analysis with R 
+
+[Lecture 4 - Hands-On Workbook](https://github.com/laurenquezada/BGGN213_LQ_Repository/blob/master/lecture_4_rstats/walkthrough_4.R ) - Bioinformatics Data Analysis with R 
+
+[Lecture 5](https://github.com/laurenquezada/BGGN213_LQ_Repository/blob/master/lecture_5_rstats/r_core_plots_exercise_answers.r) - Data Exploration and Visualization in R 
 
 [Lecture 6](https://github.com/laurenquezada/BGGN213_LQ_Repository/blob/master/lecture_6_git/lecture_6_walkthrough.md) - R Functions
 
