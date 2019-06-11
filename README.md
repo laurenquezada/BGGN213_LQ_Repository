@@ -21,3 +21,5 @@ Lecture 10 - Hands on with Git - no RMD
 [Lecture 12](https://github.com/laurenquezada/BGGN213_LQ_Repository/blob/master/lecture_12_git/lecture_12_class_walkthrough_2.md) - Bioinformatics in Drug Discovery and Design
 
 [Lecture 13](https://github.com/laurenquezada/BGGN213_LQ_Repository/blob/master/lecture_13_git/lecture_13_walkthrough.md) - Genome Informatics and High Throughput Sequencing 
+
+[Lecture 14](https://github.com/laurenquezada/BGGN213_LQ_Repository/blob/master/lecture_14_git/lecture_14_walkthrough.md) - Transcriptomics and the Analysis of RNA-Seq Data 
