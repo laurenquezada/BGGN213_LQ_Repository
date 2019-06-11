@@ -14,7 +14,7 @@ Lauren Quezada's Classwork
 
 [Lecture 9](https://github.com/laurenquezada/BGGN213_LQ_Repository/blob/master/lecture_9_git/lecture_9_walkthrough.md) - Unsupervised Machine Learning
 
-Lecture 10 - Hands on with Git - no RMD
+Lecture 10 - Hands on with Git
 
 [Lecture 11](https://github.com/laurenquezada/BGGN213_LQ_Repository/blob/master/lecture_11_git/lecture_11_class_walkthrough.md) - Structural Bioinformatics
 
@@ -23,3 +23,11 @@ Lecture 10 - Hands on with Git - no RMD
 [Lecture 13](https://github.com/laurenquezada/BGGN213_LQ_Repository/blob/master/lecture_13_git/lecture_13_walkthrough.md) - Genome Informatics and High Throughput Sequencing 
 
 [Lecture 14](https://github.com/laurenquezada/BGGN213_LQ_Repository/blob/master/lecture_14_git/lecture_14_walkthrough.md) - Transcriptomics and the Analysis of RNA-Seq Data 
+
+[Lecture 15](https://github.com/laurenquezada/BGGN213_LQ_Repository/blob/master/lecture_15_git/lecture_15_walkthrough.md) - Genome annotation and the interpretation of gene lists 
+
+Lecture 16 - UNIX!
+
+[Lecture 17 - Redone for New Repository](https://github.com/laurenquezada/BGGN213_LQ_Repository/blob/master/lecture_17_git/lecture_17_walkthrough.md) - Biological Network Analysis 
+
+[Lecture 17 - Original RMD Produced During Class, with Cytoscape Data](https://github.com/laurenquezada/BGGN213_LQ_Repository/blob/master/lecture_17_git/lecture_17_walkthrough_class.md) - Biological Network Analysis
