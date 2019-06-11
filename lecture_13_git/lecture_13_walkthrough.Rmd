@@ -1,0 +1,78 @@
+---
+title: "Lecture_13_walkthrough"
+author: "LQ"
+date: "5/15/2019"
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+###Q5: What proportion of the Mexican Ancestry in Los Angeles sample population (MXL) are homozygous for the asthma associated SNP (G|G)?
+[HINT: You can download a CVS file for this population from ENSEMBLE and use the R functions read.csv(), and table() to answer this question]
+
+
+```{r}
+mxl <- read.csv("373531-SampleGenotypes-Homo_sapiens_Variation_Sample_rs8067378.csv")
+head(mxl)
+
+
+```
+
+```{r}
+table(mxl$Genotype..forward.strand.)
+
+```
+
+```{r}
+table(mxl$Genotype..forward.strand.)/nrow(mxl)
+```
+
+```{r}
+library(seqinr)
+library(gtools)
+phred <- asc( s2c("DDDDCDEDCDDDDBBDDDCC@") ) - 33
+phred
+prob <- 10**(-phred/10)
+```
+
+```{r}
+expr <- read.table("rs8067378_ENSG00000172057.6.txt")
+summary(expr)
+boxplot(expr)
+
+```
+
+```{r}
+indsgg <- (expr$geno == "G/G")
+expr[indsgg,]
+summary(expr[indsgg,]$exp)
+hist(expr[indsgg,]$exp)
+
+```
+
+```{r}
+indsaa <- (expr$geno == "A/A")
+expr[indsaa,]
+summary(expr[indsaa,]$exp)
+hist(expr[indsaa,]$exp)
+```
+
+```{r}
+indsag <- (expr$geno == "A/G")
+expr[indsag,]
+summary(expr[indsag,]$exp)
+hist(expr[indsag,]$exp)
+boxplot(expr[indsgg,]$exp)
+```
+
+####Use Defualt S3 method from help tab for a good way to represent
+###First try at a boxplot to show this data
+
+```{r}
+boxplot(exp ~ geno, data=expr,notch = TRUE)
+```
+
+
