@@ -21,7 +21,6 @@ head(db)
 ```{r}
 #Total number of structures in the PDB database
 sum(db$Total)
-#rowSums(db[,1:4])
 ```
 
 ```{r}
@@ -118,7 +117,7 @@ write.pdb(lig_sel, file = "1hsg_ligand.pdb")
 # Load the package
 library("bio3d.view")
 # View the 3D structure
-view(pdb, "overview", col="sse")
+#view(pdb, "overview", col="sse")
 ```
 
 ##Section 6: Working with Multiple PDB Files
@@ -143,8 +142,8 @@ pdbs_2
 
 
 ```{r}
-view(pdbs)
-view (pdbs_2)
+#view(pdbs)
+#view (pdbs_2)
 ```
 
 ###*Q8: What effect does setting the fit=TRUE option have in the related rmsd() function? What does RMSD measure and what would the results indicate if you set fit=FALSE or removed this option? HINT: Bio3D functions have various default options that will be used if the option is not explicitly specified by the user, see help(rmsd) for an example and note that the input options with an equals sign (e.g. fit=FALSE) have default values.*
@@ -183,15 +182,15 @@ pc.xray <- pca(pdbs)
 plot(pc.xray)
 # Visualize first principal component
 pc1 <- mktrj(pc.xray, pc=1, file="pc_1.pdb")
-view(pc1)
+#view(pc1)
 ```
 
 
 ```{r}
 # The rglwidget() function from the rgl package will show output in your Rmd notebook and rendered html_output documents
-library(rgl) 
-view(pc1)
-rglwidget()
+#library(rgl) 
+#view(pc1)
+#rglwidget()
 
 ```
 
