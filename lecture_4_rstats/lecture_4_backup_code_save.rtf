@@ -1,0 +1,138 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1671\cocoasubrtf400
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 > 2+2\
+[1] 4\
+> 3^2\
+[1] 9\
+> sqrt(25)\
+[1] 5\
+> 2* (1+1)\
+[1] 4\
+> exp(1)\
+[1] 2.718282\
+> log(2.718282)\
+[1] 1\
+> log(10, base = 10)\
+[1] 1\
+> log(10 +, base = 10)\
+Error: unexpected ',' in "log(10 +,"\
+> x=1:50\
+> plot(x, sinx)\
+Error in xy.coords(x, y, xlabel, ylabel, log) : object 'sinx' not found\
+> plot(x, sin(x))\
+> plot(x, sin(x), typ="l", col="blue",lwd=3, xlab="x = 1:50")\
+> 5+3\
+[1] 8\
+> 5-3\
+[1] 2\
+> 5*3\
+[1] 15\
+> 5/3\
+[1] 1.666667\
+> x <- 3*4\
+> x\
+[1] 12\
+> this_is_a_really_long_name <- 2.5\
+> this_is_a_really_long_name\
+[1] 2.5\
+> r_rocks <- 2^3\
+> r_rocks\
+[1] 8\
+> rrocks\
+Error: object 'rrocks' not found\
+> R_rocks\
+Error: object 'R_rocks' not found\
+> seq(1,10)\
+ [1]  1  2  3  4  5  6  7  8  9 10\
+> seq(1,10, by = 2)\
+[1] 1 3 5 7 9\
+> examples(seq)\
+Error in examples(seq) : could not find function "examples"\
+> example("seq")\
+\
+seq> seq(0, 1, length.out = 11)\
+ [1] 0.0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1.0\
+\
+seq> seq(stats::rnorm(20)) # effectively 'along'\
+ [1]  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20\
+\
+seq> seq(1, 9, by = 2)     # matches 'end'\
+[1] 1 3 5 7 9\
+\
+seq> seq(1, 9, by = pi)    # stays below 'end'\
+[1] 1.000000 4.141593 7.283185\
+\
+seq> seq(1, 6, by = 3)\
+[1] 1 4\
+\
+seq> seq(1.575, 5.125, by = 0.05)\
+ [1] 1.575 1.625 1.675 1.725 1.775 1.825 1.875 1.925 1.975 2.025 2.075 2.125 2.175 2.225\
+[15] 2.275 2.325 2.375 2.425 2.475 2.525 2.575 2.625 2.675 2.725 2.775 2.825 2.875 2.925\
+[29] 2.975 3.025 3.075 3.125 3.175 3.225 3.275 3.325 3.375 3.425 3.475 3.525 3.575 3.625\
+[43] 3.675 3.725 3.775 3.825 3.875 3.925 3.975 4.025 4.075 4.125 4.175 4.225 4.275 4.325\
+[57] 4.375 4.425 4.475 4.525 4.575 4.625 4.675 4.725 4.775 4.825 4.875 4.925 4.975 5.025\
+[71] 5.075 5.125\
+\
+seq> seq(17) # same as 1:17, or even better seq_len(17)\
+ [1]  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17\
+> date()\
+[1] "Fri May  3 17:15:44 2019"\
+> ?log\
+> help('+')\
+> ??("cross tabulate")\
+Error in help.search(c("(", "cross tabulate"), package = NULL) : \
+  argument \'91pattern\'92 must be a single character string\
+> ??"cross tabulate"\
+> help.search("cross tabulate")\
+> library(help="base")\
+> length(3.1)\
+[1] 1\
+> x <- c(56, 95.3, 0.4)\
+> x\
+[1] 56.0 95.3  0.4\
+> y <- c(3.2, 1.1, 0.2)\
+> y\
+[1] 3.2 1.1 0.2\
+> x+y\
+[1] 59.2 96.4  0.6\
+> x-y\
+[1] 52.8 94.2  0.2\
+> x/y\
+[1] 17.50000 86.63636  2.00000\
+> sqrt(x)\
+[1] 7.4833148 9.7621719 0.6324555\
+> round(sqrt(x), 3)\
+[1] 7.483 9.762 0.632\
+> log(x)/2 + 1\
+[1] 3.0126758 3.2785149 0.5418546\
+> x[2]\
+[1] 95.3\
+> x[1]\
+[1] 56\
+> x[4]\
+[1] NA\
+> x[3] <- 0.5\
+> x\
+[1] 56.0 95.3  0.5\
+> sessionInfo()\
+R version 3.5.3 (2019-03-11)\
+Platform: x86_64-apple-darwin15.6.0 (64-bit)\
+Running under: macOS Mojave 10.14.4\
+\
+Matrix products: default\
+BLAS: /System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/libBLAS.dylib\
+LAPACK: /Library/Frameworks/R.framework/Versions/3.5/Resources/lib/libRlapack.dylib\
+\
+locale:\
+[1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8\
+\
+attached base packages:\
+[1] stats     graphics  grDevices utils     datasets  methods   base     \
+\
+loaded via a namespace (and not attached):\
+[1] compiler_3.5.3 tools_3.5.3    yaml_2.2.0    }
